@@ -17,6 +17,8 @@ namespace TaxCalculatorAPI.Services
         {
             _settings = settings;
         }
+
+        // Method to get exchange rate from Fixer.io API
         public async Task<decimal> GetExchangeRate(string invoiceDate, string baseCurrency, string targetCurrency)
         {
             var client = new RestClient(_settings.FixerBaseUrl);

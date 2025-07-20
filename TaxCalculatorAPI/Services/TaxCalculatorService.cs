@@ -28,13 +28,14 @@ namespace TaxCalculatorAPI.Services
             // Main logic to calculate tax
             TaxBO taxBO = new TaxBO
             {
-                PreTaxTotalInPaymentCCY = preTaxTotal * exchangeRate,
+                PreTaxTotalInPaymentCCY = Math.Round(preTaxTotal * exchangeRate,2),
                 ExchangeRate = exchangeRate,
                 Currency = paymentCurrency
             };
 
-            taxBO.TaxAmountInPaymentCCY = taxBO.PreTaxTotalInPaymentCCY *  _settings.TaxRates[paymentCurrency];
-            
+            taxBO.TaxAmountInPaymentCCY = Math.Round(taxBO.PreTaxTotalInPaymentCCY *  _settings.TaxRates[paymentCurrency],2);
+            taxBO.GrantTotalInPaymentCCY = Math.Round(taxBO.PreTaxTotalInPaymentCCY + taxBO.TaxAmountInPaymentCCY, 2);
+
             return taxBO;
         }
     }

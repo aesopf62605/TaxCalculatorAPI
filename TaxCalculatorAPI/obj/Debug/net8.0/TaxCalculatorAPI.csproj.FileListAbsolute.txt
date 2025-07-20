@@ -8,6 +8,7 @@ C:\Project\Github\TaxCalculatorAPI\TaxCalculatorAPI\bin\Debug\net8.0\TaxCalculat
 C:\Project\Github\TaxCalculatorAPI\TaxCalculatorAPI\bin\Debug\net8.0\TaxCalculatorAPI.pdb
 C:\Project\Github\TaxCalculatorAPI\TaxCalculatorAPI\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
 C:\Project\Github\TaxCalculatorAPI\TaxCalculatorAPI\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Project\Github\TaxCalculatorAPI\TaxCalculatorAPI\bin\Debug\net8.0\RestSharp.dll
 C:\Project\Github\TaxCalculatorAPI\TaxCalculatorAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Project\Github\TaxCalculatorAPI\TaxCalculatorAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Project\Github\TaxCalculatorAPI\TaxCalculatorAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -19,6 +20,7 @@ C:\Project\Github\TaxCalculatorAPI\TaxCalculatorAPI\obj\Debug\net8.0\TaxCalculat
 C:\Project\Github\TaxCalculatorAPI\TaxCalculatorAPI\obj\Debug\net8.0\TaxCalculatorAPI.csproj.CoreCompileInputs.cache
 C:\Project\Github\TaxCalculatorAPI\TaxCalculatorAPI\obj\Debug\net8.0\TaxCalculatorAPI.MvcApplicationPartsAssemblyInfo.cs
 C:\Project\Github\TaxCalculatorAPI\TaxCalculatorAPI\obj\Debug\net8.0\TaxCalculatorAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Project\Github\TaxCalculatorAPI\TaxCalculatorAPI\obj\Debug\net8.0\TaxCalculatorAPI.sourcelink.json
 C:\Project\Github\TaxCalculatorAPI\TaxCalculatorAPI\obj\Debug\net8.0\rjimswa.dswa.cache.json
 C:\Project\Github\TaxCalculatorAPI\TaxCalculatorAPI\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
 C:\Project\Github\TaxCalculatorAPI\TaxCalculatorAPI\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
@@ -33,4 +35,3 @@ C:\Project\Github\TaxCalculatorAPI\TaxCalculatorAPI\obj\Debug\net8.0\refint\TaxC
 C:\Project\Github\TaxCalculatorAPI\TaxCalculatorAPI\obj\Debug\net8.0\TaxCalculatorAPI.pdb
 C:\Project\Github\TaxCalculatorAPI\TaxCalculatorAPI\obj\Debug\net8.0\TaxCalculatorAPI.genruntimeconfig.cache
 C:\Project\Github\TaxCalculatorAPI\TaxCalculatorAPI\obj\Debug\net8.0\ref\TaxCalculatorAPI.dll
-C:\Project\Github\TaxCalculatorAPI\TaxCalculatorAPI\bin\Debug\net8.0\RestSharp.dll

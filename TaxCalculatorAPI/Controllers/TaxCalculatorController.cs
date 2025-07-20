@@ -21,7 +21,7 @@ namespace TaxCalculatorAPI.Controllers
         {
             _taxCalculatorService = taxCalculatorService;
         }
-        // Read
+        // Get Tax Calculation
         [HttpGet]
         public async Task<ActionResult<TaxResultDto>> GetTaxCalculator([FromQuery] TaxCalculatorRequestDto query)
         {
@@ -40,7 +40,7 @@ namespace TaxCalculatorAPI.Controllers
             {
                 PreTaxTotal = tax.PreTaxTotalInPaymentCCY.ToString("N2") + " " + tax.Currency,
                 TaxAmount = tax.TaxAmountInPaymentCCY.ToString("N2") + " " + tax.Currency,
-                GrantTotal = (tax.PreTaxTotalInPaymentCCY + tax.TaxAmountInPaymentCCY).ToString("N2")  + " "+ tax.Currency, // Total after tax
+                GrantTotal = tax.GrantTotalInPaymentCCY.ToString("N2")  + " "+ tax.Currency, // Total after tax
                 ExchangeRate = tax.ExchangeRate,
             };
 
