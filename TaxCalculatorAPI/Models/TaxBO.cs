@@ -12,5 +12,15 @@ namespace TaxCalculatorAPI.Models
         public decimal GrantTotalInPaymentCCY { get; set; }
         public decimal ExchangeRate { get; set; }
         public string Currency { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            return obj is TaxBO other &&
+                   PreTaxTotalInPaymentCCY == other.PreTaxTotalInPaymentCCY &&
+                   TaxAmountInPaymentCCY == other.TaxAmountInPaymentCCY &&
+                   GrantTotalInPaymentCCY == other.GrantTotalInPaymentCCY &&
+                   ExchangeRate == other.ExchangeRate &&
+                   Currency == other.Currency;
+        }
     }
 }

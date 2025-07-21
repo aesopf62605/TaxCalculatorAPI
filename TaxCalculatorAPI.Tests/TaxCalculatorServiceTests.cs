@@ -1,4 +1,6 @@
-﻿using TaxCalculatorAPI.Services.Interfaces;
+﻿using System.Reflection.Metadata.Ecma335;
+using TaxCalculatorAPI.Models;
+using TaxCalculatorAPI.Services.Interfaces;
 using Unity;
 
 namespace TaxCalculatorAPI.Tests;
@@ -14,48 +16,20 @@ public class TaxCalculatorServiceTests : BaseFixture
         _taxCalculatorService = Container.Resolve<ITaxCalculatorService>();
     }
 
-    [Test, Order(1)]
-    public void CalculateTaxTest_Case1()
+    public static IEnumerable<TestCaseData> testCases =>
+    new[]
     {
-        DateTime invoiceDate = new DateTime(2020, 8, 5);
-        var taxResult = _taxCalculatorService.CalculateTax(invoiceDate, "USD", 123.45m);
+        new TestCaseData(new DateTime(2020, 8,5), "USD", 123.45m).Returns(new TaxBO { PreTaxTotalInPaymentCCY = 146.57m, TaxAmountInPaymentCCY = 14.66m, GrantTotalInPaymentCCY = 161.23m, ExchangeRate = 1.187247m, Currency = "USD" }),
+        new TestCaseData(new DateTime(2019, 7, 12), "EUR", 1000.00m).Returns(new TaxBO { PreTaxTotalInPaymentCCY = 1000.00m, TaxAmountInPaymentCCY = 90m, GrantTotalInPaymentCCY = 1090m, ExchangeRate = 1, Currency = "EUR" }),
+        new TestCaseData(new DateTime(2020, 8, 19),  "CAD", 6543.21m).Returns(new TaxBO { PreTaxTotalInPaymentCCY =  10239.07m, TaxAmountInPaymentCCY = 1126.30m, GrantTotalInPaymentCCY = 11365.37m, ExchangeRate = 1.564839m, Currency = "CAD" })
+        };
 
-        Assert.That(taxResult.Result.PreTaxTotalInPaymentCCY, Is.EqualTo(146.57m));
-        Assert.That(taxResult.Result.TaxAmountInPaymentCCY, Is.EqualTo(14.66m));
-        Assert.That(taxResult.Result.GrantTotalInPaymentCCY, Is.EqualTo(161.23m));
-        Assert.That(taxResult.Result.ExchangeRate, Is.EqualTo(1.187247));
-        Assert.Pass();
+    [TestCaseSource(nameof(testCases))]
+    public TaxBO CalculateTaxTest_Case1(DateTime invoiceDate, string currency, decimal amount)
+    {
+        var taxResult = _taxCalculatorService.CalculateTax(invoiceDate, currency, amount);
+        Thread.Sleep(10000); 
+        return taxResult.Result;
     }
 
-    [Test, Order(2)]
-    public void CalculateTaxTest_Case2()
-    {
-        DateTime invoiceDate = new DateTime(2019, 7, 12);
-        var taxResult = _taxCalculatorService.CalculateTax(invoiceDate, "EUR", 1000.00m);
-
-        Assert.That(taxResult.Result.PreTaxTotalInPaymentCCY, Is.EqualTo(1000.00m));
-        Assert.That(taxResult.Result.TaxAmountInPaymentCCY, Is.EqualTo(90m));
-        Assert.That(taxResult.Result.GrantTotalInPaymentCCY, Is.EqualTo(1090m));
-        Assert.That(taxResult.Result.ExchangeRate, Is.EqualTo(1));
-        Assert.Pass();
-    }
-
-    [Test, Order(3)]
-    public void CalculateTaxTest_Case3()
-    {
-        DateTime invoiceDate = new DateTime(2020, 8, 19);
-        var taxResult = _taxCalculatorService.CalculateTax(invoiceDate, "CAD", 6543.21m);
-
-        Assert.That(taxResult.Result.PreTaxTotalInPaymentCCY, Is.EqualTo(10239.07m));
-        Assert.That(taxResult.Result.TaxAmountInPaymentCCY, Is.EqualTo(1126.30m));
-        Assert.That(taxResult.Result.GrantTotalInPaymentCCY, Is.EqualTo(11365.37m));
-        Assert.That(taxResult.Result.ExchangeRate, Is.EqualTo(1.564839));
-        Assert.Pass();
-    }
-
-    [TearDown]
-    public void AfterEachTest()
-    {
-        Thread.Sleep(10000); // Delay for 10 second
-    }
 }
