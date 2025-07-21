@@ -1,0 +1,30 @@
+# Build results
+bin/
+obj/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# VS Code settings
+.vscode/
+
+# Test results
+TestResult.xml
+*.VisualState.xml
+
+# NuGet packages
+*.nupkg
+**/packages/*
+!**/packages/build/
+
+# Logs and temp files
+*.log
+*.tmp
+
+# Rider and ReSharper
+.idea/
+_ReSharper*/
+*.DotSettings.user
