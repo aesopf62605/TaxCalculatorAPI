@@ -30,7 +30,7 @@ namespace TaxCalculatorAPI.Controllers
                 return BadRequest("Invalid request data.");
             }
 
-            TaxBO tax = await _taxCalculatorService.CalculateTax(query.InvoiceDate, query.PaymentCurrency, query.PreTaxAmount);
+            TaxBO tax = await _taxCalculatorService.CalculateTax(query.InvoiceDate, query.PaymentCurrency.ToUpper(), query.PreTaxAmount);
 
             if (tax == null)
             {
