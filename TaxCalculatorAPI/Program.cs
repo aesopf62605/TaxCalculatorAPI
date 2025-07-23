@@ -22,12 +22,11 @@ builder.Services.AddScoped<ITaxCalculatorService, TaxCalculatorService>();
 
 var app = builder.Build();
 
-app.UseSwagger();
+
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
+
 
 app.UseHttpsRedirection();
 
